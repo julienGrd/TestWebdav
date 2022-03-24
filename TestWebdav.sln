@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32314.265
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWebdav.Server", "TestWebdav\Server\TestWebdav.Server.csproj", "{BDCE69A1-7DC8-46D1-ABEE-BDD8745FA702}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWebdav.Client", "TestWebdav\Client\TestWebdav.Client.csproj", "{240F9749-C1BD-42FA-894F-E4DF461E44DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWebdav.Shared", "TestWebdav\Shared\TestWebdav.Shared.csproj", "{F15ACD5E-D51E-4494-A6EE-D4C89813EF0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDCE69A1-7DC8-46D1-ABEE-BDD8745FA702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDCE69A1-7DC8-46D1-ABEE-BDD8745FA702}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDCE69A1-7DC8-46D1-ABEE-BDD8745FA702}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDCE69A1-7DC8-46D1-ABEE-BDD8745FA702}.Release|Any CPU.Build.0 = Release|Any CPU
+		{240F9749-C1BD-42FA-894F-E4DF461E44DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{240F9749-C1BD-42FA-894F-E4DF461E44DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{240F9749-C1BD-42FA-894F-E4DF461E44DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{240F9749-C1BD-42FA-894F-E4DF461E44DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F15ACD5E-D51E-4494-A6EE-D4C89813EF0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F15ACD5E-D51E-4494-A6EE-D4C89813EF0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F15ACD5E-D51E-4494-A6EE-D4C89813EF0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F15ACD5E-D51E-4494-A6EE-D4C89813EF0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8D72084F-411A-465E-BFEC-99AC5DB550C9}
+	EndGlobalSection
+EndGlobal
