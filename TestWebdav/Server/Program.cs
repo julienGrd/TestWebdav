@@ -36,7 +36,36 @@ else
 app.UseBlazorFrameworkFiles();
 app.UseStaticFiles();
 
+//app.UseHttpsRedirection();
+var lHostEnv = app.Services.GetService<IHostEnvironment>();
+//config webdav
+app.Use(async (context, next) =>
+{
+    if (context.Request.Path.StartsWithSegments("/Webdav"))
+    {
+        //TODO put a user of your system here
+        byte[] toEncodeAsBytes = System.Text.ASCIIEncoding.ASCII.GetBytes("admin:admin");
+        string base64string = System.Convert.ToBase64String(toEncodeAsBytes);
+        context.Request.Headers.Remove("Authorization");
+        context.Request.Headers.Add("Authorization", "Basic " + base64string);
 
+        //AppliGeckosSL.WriteLogDebug($"intercept {context.Request.Path}, Method : {context.Request.Method}", null);
+        //var lFileInfo = lHostEnv.ContentRootFileProvider.GetFileInfo(context.Request.Path);
+        //if (lFileInfo != null)
+        //{
+
+        //HttpApplication application = (HttpApplication)pSource;
+        //HttpContext context = application.Context;
+        //attention sur certaines version de word et/ou iis on se prend un header Authorization ajouté par word qu'il faut absolument supprimé
+
+        // }
+    }
+
+
+
+    // Call the next delegate/middleware in the pipeline.
+    await next(context);
+});
 
 //on tente de mapper directement dans IIS
 //if (Directory.Exists(Sys.Web.AppliIs.Path_Webdav))
@@ -75,39 +104,6 @@ app.UseStaticFiles(new StaticFileOptions
 
 
 app.UseRouting();
-
-
-//tentative apres routing
-//app.UseHttpsRedirection();
-var lHostEnv = app.Services.GetService<IHostEnvironment>();
-//config webdav
-app.Use(async (context, next) =>
-{
-    if (context.Request.Path.StartsWithSegments("/Webdav"))
-    {
-        byte[] toEncodeAsBytes = System.Text.ASCIIEncoding.ASCII.GetBytes("admin:admin");
-        string base64string = System.Convert.ToBase64String(toEncodeAsBytes);
-        context.Request.Headers.Remove("Authorization");
-        context.Request.Headers.Add("Authorization", "Basic " + base64string);
-
-        //AppliGeckosSL.WriteLogDebug($"intercept {context.Request.Path}, Method : {context.Request.Method}", null);
-        //var lFileInfo = lHostEnv.ContentRootFileProvider.GetFileInfo(context.Request.Path);
-        //if (lFileInfo != null)
-        //{
-
-        //HttpApplication application = (HttpApplication)pSource;
-        //HttpContext context = application.Context;
-        //attention sur certaines version de word et/ou iis on se prend un header Authorization ajouté par word qu'il faut absolument supprimé
-
-        // }
-    }
-
-
-
-    // Call the next delegate/middleware in the pipeline.
-    await next(context);
-});
-
 
 
 app.MapRazorPages();
